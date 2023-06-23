@@ -4,15 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace]
-resolver = "2"
-members = [
-	".",
-	"./examples/host-wasmer",
-	"./examples/host-wasmtime",
-	"./examples/host-wasmi",
-	"./examples/test-runner",
-]
-default-members = ["."]
+members = [".", "examples/hello", "examples/host-wasmer"]
 
 [lib]
 proc-macro = true

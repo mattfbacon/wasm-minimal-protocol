@@ -1,0 +1,15 @@
+[package]
+name = "pyo3-plugin"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pyo3 = { version = "0.19.0",default-features = false, features = ["abi3-py311"] }
+wasm-minimal-protocol = { path = "../../" }
+
+[build-dependencies]
+wlr-libpy = { git = "https://github.com/vmware-labs/webassembly-language-runtimes.git", features = ["build"] }
