@@ -4,7 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace]
-members = [".", "examples/hello", "examples/host-wasmer"]
+members = [
+    ".",
+    "examples/hello",
+    "examples/host-wasmer",
+    "examples/rust-python-plugin",
+    "examples/pyo3-plugin",
+    "examples/host-wasmtime",
+]
 
 [lib]
 proc-macro = true
