@@ -57,25 +57,34 @@ fn main() -> Result<()> {
     };
     
     let mut plugin_instance = PluginInstance::new_from_bytes(include_bytes!("./pikchr.wasm")).unwrap();
-    println!("{:?}", plugin_instance.call("_PikchrRender", &["something"]));
-    panic!();
 
 
-    let mut plugin_instance = PluginInstance::new_from_bytes(plugin_binary).unwrap();
+    //let mut plugin_instance = PluginInstance::new_from_bytes(plugin_binary).unwrap();
 
-    println!("{:?}", plugin_instance.call("hello", &[]));
-    println!("{:?}", plugin_instance.call("double_it", &["double me!!"]));
-    println!(
-        "{:?}",
-        plugin_instance.call("concatenate", &["val1", "value2"])
-    );
-    println!(
-        "{:?}",
-        plugin_instance.call("shuffle", &["value1", "value2", "value3"])
-    );
-    println!("{:?}", plugin_instance.call("returns_ok", &[]));
-    println!("{:?}", plugin_instance.call("returns_err", &[]));
-    println!("{:?}", plugin_instance.call("will_panic", &[]));
+    // for k in plugin_instance.instance.exports.into_iter() {
+    //     println!("{k:?}")
+    // }
+
+    println!("{:?}", plugin_instance.call("PikchrRender", &["something"]));
+
+    // let mut plugin_instance = PluginInstance::new_from_bytes(include_bytes!(
+    //     "../../../target/wasm32-unknown-unknown/debug/hello.wasm"
+    // ))
+    // .unwrap();
+
+    // println!("{:?}", plugin_instance.call("hello", &[]));
+    // println!("{:?}", plugin_instance.call("double_it", &["double me!!"]));
+    // println!(
+    //     "{:?}",
+    //     plugin_instance.call("concatenate", &["val1", "value2"])
+    // );
+    // println!(
+    //     "{:?}",
+    //     plugin_instance.call("shuffle", &["value1", "value2", "value3"])
+    // );
+    // println!("{:?}", plugin_instance.call("returns_ok", &[]));
+    // println!("{:?}", plugin_instance.call("returns_err", &[]));
+    // println!("{:?}", plugin_instance.call("will_panic", &[]));
 
     Ok(())
 }

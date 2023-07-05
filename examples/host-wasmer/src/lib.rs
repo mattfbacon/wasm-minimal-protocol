@@ -16,6 +16,7 @@ pub struct PluginInstance {
     memory: Memory,
     functions: Vec<(String, wasmer::Function)>,
     persistent_data: FunctionEnv<PersistentData>,
+    pub instance : Instance
 }
 
 impl std::hash::Hash for PluginInstance {
@@ -106,6 +107,7 @@ impl PluginInstance {
             memory,
             persistent_data,
             functions,
+            instance
         })
     }
 
@@ -146,7 +148,7 @@ impl PluginInstance {
                 code.i32().unwrap()
             )),
             Value::I32(2) => Err("plugin panicked".to_string()),
-            _ => Err("plugin did not respect the protocol".to_string()),
+            _ => Err(format!("plugin did not respect the protocol, and returned with: {s}")),
         }
     }
 
