@@ -55,6 +55,11 @@ fn main() -> Result<()> {
         }
         _ => anyhow::bail!("unknown argument '{}'", args[0].as_str()),
     };
+    
+    let mut plugin_instance = PluginInstance::new_from_bytes(include_bytes!("./pikchr.wasm")).unwrap();
+    println!("{:?}", plugin_instance.call("_PikchrRender", &["something"]));
+    panic!();
+
 
     let mut plugin_instance = PluginInstance::new_from_bytes(plugin_binary).unwrap();
 
